@@ -27,7 +27,7 @@ function onFormSubmit(evt) {
     console.log('отправляем форму');
     evt.target.reset();
     localStorage.removeItem(STORAGE_KEY);
-     localStorage.removeItem('form');
+    //  localStorage.removeItem('form');
  }
 
 
@@ -47,15 +47,15 @@ function populateTextarea() {
 };
 
 
-function onInputForm (evt) {
-    // console.log(evt.target.name);
-    // console.log(evt.target.value);
-    formData[evt.target.name] = evt.target.value;
+// function onInputForm (evt) {
+//     // console.log(evt.target.name);
+//     // console.log(evt.target.value);
+//     formData[evt.target.name] = evt.target.value;
    
     
 
-    localStorage.setItem('form', JSON.stringify(formData));
-    const savedForm = localStorage.getItem('form');
-    const parseForm = JSON.parse(savedForm);
- console.log(parseForm);
-}
+//     localStorage.setItem('form', JSON.stringify(formData));
+//     const savedForm = localStorage.getItem('form');
+//     const parseForm = JSON.parse(savedForm);
+//  console.log(parseForm);
+// }
