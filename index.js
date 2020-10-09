@@ -14,8 +14,11 @@ const refs = {
 };
 const STORAGE_KEY = 'feedback-message';
 
+const formData = {};
+
 refs.form.addEventListener('submit', onFormSubmit);
 refs.textarea.addEventListener('input', onTextareaInput);
+refs.form.addEventListener('input', onInputForm);
 
 populateTextarea();
 
@@ -24,6 +27,7 @@ function onFormSubmit(evt) {
     console.log('отправляем форму');
     evt.target.reset();
     localStorage.removeItem(STORAGE_KEY);
+     localStorage.removeItem('form');
  }
 
 
@@ -41,3 +45,17 @@ function populateTextarea() {
     }
     refs.textarea.value = savedMsg;
 };
+
+
+function onInputForm (evt) {
+    // console.log(evt.target.name);
+    // console.log(evt.target.value);
+    formData[evt.target.name] = evt.target.value;
+   
+    
+
+    localStorage.setItem('form', JSON.stringify(formData));
+    const savedForm = localStorage.getItem('form');
+    const parseForm = JSON.parse(savedForm);
+ console.log(parseForm);
+}
